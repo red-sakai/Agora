@@ -21,8 +21,17 @@ app.use((req, res, next) => {
 });
 
 // TODO: Import and use routes here
-// const authRoutes = require('./routes/authRoutes');
-// app.use('/api/auth', authRoutes);
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
+const protectedRoutes = require('./routes/protectedRoutes');
+app.use('/api/protected', protectedRoutes);
+
+const eventsRoutes = require('./routes/eventsRoutes');
+app.use('/api/events', eventsRoutes);
+
+const communitiesRoutes = require('./routes/communitiesRoutes');
+app.use('/api/communities', communitiesRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
